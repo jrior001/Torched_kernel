@@ -1664,6 +1664,12 @@ config BYPASS_VMIN
 	help
 	  Krait Vmin Bypass
 
+config CPU_OVERCLOCK
+	bool "Enable CPU Overclocking option"
+	default n
+	help
+	  Enable CPU overclock for Krait S4 socs
+ 
 config MSM_AVS_HW
 	bool "Enable Adaptive Voltage Scaling (AVS)"
 	default n
