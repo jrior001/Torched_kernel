@@ -1658,6 +1658,12 @@ config CPU_VOLTAGE_TABLE
 	help
 	  Krait User Votlage Control
 
+config BYPASS_VMIN
+	bool "Bypass Qcom's errata checks that enforce minimum CPU voltages"
+	default n
+	help
+	  Krait Vmin Bypass
+
 config MSM_AVS_HW
 	bool "Enable Adaptive Voltage Scaling (AVS)"
 	default n
