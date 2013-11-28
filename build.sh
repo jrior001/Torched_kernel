@@ -3,11 +3,11 @@
 
 CROSS_COMPILE=/home/jason/prebuilt/linux-x86/arm/arm-eabi-inline/bin/arm-eabi-
 RAMDISK=ramdisk.img
-KERNEL_NAME=Torched
-KERNEL_VNUMBER=B1
-CONFIG_FILE=Torched_defconfig
+KERNEL_NAME=Torched-KK
+KERNEL_VNUMBER=Build#1
+CONFIG_FILE=torched_elite_defconfig
 MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
-export LOCALVERSION="-Torched.B1"
+export LOCALVERSION="-Torched-KK.B1"
 export KBUILD_BUILD_VERSION="1"
 
 # DO NOT MODIFY BELOW THIS LINE
