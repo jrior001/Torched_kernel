@@ -1,10 +1,10 @@
 ## Script for building kernel
 ## Adapted from script designed by Rohan Mathur
 
-CROSS_COMPILE=/home/jason/prebuilt/linux-x86/arm/arm-eabi-inline/bin/arm-eabi-
+CROSS_COMPILE=/home/jason/prebuilt/linux-x86/arm/prebuilts_gcc_linux-x86_arm_arm-eabi-4.8/bin/arm-eabi-
 RAMDISK=ramdisk.img
 KERNEL_NAME=Torched-KK
-KERNEL_VNUMBER=Build#1
+KERNEL_VNUMBER=Build1
 CONFIG_FILE=torched_elite_defconfig
 MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
 export LOCALVERSION="-Torched-KK.B1"
