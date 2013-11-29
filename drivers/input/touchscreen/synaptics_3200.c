@@ -193,6 +193,13 @@ int sweep2wake_buttonset(const char * button_name) {
 	return future_button;
 }
 
+extern uint8_t touchscreen_is_on(void) {
+	if (scr_suspended == false) {
+		return 1;
+	}
+	return 0;
+}
+
 static struct input_dev * sweep2wake_pwrdev;
 static struct led_classdev * sweep2wake_leddev;
 static DEFINE_MUTEX(pwrlock);
