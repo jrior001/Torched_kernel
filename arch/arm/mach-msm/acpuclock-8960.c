@@ -46,7 +46,7 @@ static struct scalable scalable[] __initdata = {
 		.aux_clk_sel = 3,
 		.sec_clk_sel = 2,
 		.l2cpmr_iaddr = 0x4501,
-		.vreg[VREG_CORE] = { "krait0", 1400000 },
+		.vreg[VREG_CORE] = { "krait0", 1300000 },
 		.vreg[VREG_MEM]  = { "krait0_mem", 1150000 },
 		.vreg[VREG_DIG]  = { "krait0_dig", 1150000 },
 		.vreg[VREG_HFPLL_A] = { "krait0_s8", 2050000 },
@@ -58,7 +58,7 @@ static struct scalable scalable[] __initdata = {
 		.aux_clk_sel = 3,
 		.sec_clk_sel = 2,
 		.l2cpmr_iaddr = 0x5501,
-		.vreg[VREG_CORE] = { "krait1", 1400000 },
+		.vreg[VREG_CORE] = { "krait1", 1300000 },
 		.vreg[VREG_MEM]  = { "krait1_mem", 1150000 },
 		.vreg[VREG_DIG]  = { "krait1_dig", 1150000 },
 		.vreg[VREG_HFPLL_A] = { "krait1_s8", 2050000 },
@@ -145,9 +145,6 @@ static struct acpu_level acpu_freq_tbl_slow[] __initdata = {
 #ifdef CONFIG_CPU_OVERCLOCK
 	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(19), 1275000 },
 	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(19), 1300000 },
-        { 1, {  1809000, HFPLL, 1, 0x43 }, L2(19), 1325000 },
-        { 1, {  1890000, HFPLL, 1, 0x46 }, L2(19), 1350000 },
-        { 1, {  1944000, HFPLL, 1, 0x48 }, L2(19), 1375000 },
 #endif
  	{ 0, { 0 } }
 };
@@ -178,9 +175,6 @@ static struct acpu_level acpu_freq_tbl_nom[] __initdata = {
 #ifdef CONFIG_CPU_OVERCLOCK
 	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(19), 1250000 },
 	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(19), 1275000 },
-        { 1, {  1809000, HFPLL, 1, 0x43 }, L2(19), 1300000 },
-        { 1, {  1890000, HFPLL, 1, 0x46 }, L2(19), 1325000 },
-        { 1, {  1944000, HFPLL, 1, 0x48 }, L2(19), 1350000 },
 #endif
 	{ 0, { 0 } }
 };
@@ -211,9 +205,6 @@ static struct acpu_level acpu_freq_tbl_fast[] __initdata = {
 #ifdef CONFIG_CPU_OVERCLOCK
 	{ 1, {  1674000, HFPLL, 1, 0x3E }, L2(19), 1200000 },
 	{ 1, {  1728000, HFPLL, 1, 0x40 }, L2(19), 1250000 },
-        { 1, {  1809000, HFPLL, 1, 0x43 }, L2(19), 1300000 },
-        { 1, {  1890000, HFPLL, 1, 0x46 }, L2(19), 1325000 },
-        { 1, {  1944000, HFPLL, 1, 0x48 }, L2(19), 1350000 },
 #endif
 	{ 0, { 0 } }
 };
