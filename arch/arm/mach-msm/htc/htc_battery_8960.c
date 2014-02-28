@@ -39,15 +39,12 @@
 #include <mach/htc_gauge.h>
 #include <mach/htc_charger.h>
 #include <mach/htc_battery_cell.h>
-<<<<<<< HEAD
 
 #ifdef CONFIG_FORCE_FAST_CHARGE
 #include <linux/fastchg.h>
 #endif 
 
-=======
 #define MSPERIOD(end, start)	ktime_to_ms(ktime_sub(end, start))
->>>>>>> 680ae3382891e23d1a89737853013683edc8f8cb
 
 #define HTC_BATT_CHG_DIS_BIT_EOC	(1)
 #define HTC_BATT_CHG_DIS_BIT_ID		(1<<1)
