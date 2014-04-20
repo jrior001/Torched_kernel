@@ -1173,6 +1173,7 @@ CLEAN_FILES +=	vmlinux System.map \
 CLEAN_DIRS  += out/system/*
 CLEAN_FILES += out/kernel/z*
 CLEAN_FILES += out/Torched* out/temp*
+CLEAN_DIRS  += release/*
 # Directories & files removed with 'make mrproper'
 MRPROPER_DIRS  += include/config usr/include include/generated          \
                   arch/*/include/generated
