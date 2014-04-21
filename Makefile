@@ -351,12 +351,12 @@ CC		= $(srctree)/scripts/gcc-wrapper.py $(REAL_CC)
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
-MODFLAGS	= -DMODULE -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant -mtune=cortex-a15 -marm -mfpu=neon -ftree-vectorize -funroll-loops -mvectorize-with-neon-quad
-CFLAGS_MODULE   = $(MODFLAGS)
-AFLAGS_MODULE   = $(MODFLAGS)
+MODFLAGS	= -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant -mtune=cortex-a15 -marm -mfpu=neon -ftree-vectorize -funroll-loops -mvectorize-with-neon-quad
+CFLAGS_MODULE   = $(MODFLAGS) -DMODULE 
+AFLAGS_MODULE   = $(MODFLAGS) -DMODULE 
 LDFLAGS_MODULE  = -T $(srctree)/scripts/module-common.lds
-CFLAGS_KERNEL	= -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant -mtune=cortex-a15 -marm -mfpu=neon -ftree-vectorize -funroll-loops -mvectorize-with-neon-quad
-AFLAGS_KERNEL	=
+CFLAGS_KERNEL	= $(MODFLAGS)
+AFLAGS_KERNEL	= $(MODFLAGS)
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage
 
 
@@ -567,7 +567,7 @@ ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
 endif
 ifdef CONFIG_CC_OPTIMIZE_DEFAULT
-KBUILD_CFLAGS	+= -O2
+KBUILD_CFLAGS	+= -O2 -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-tree-vectorize -fno-inline-functions
 endif
 ifdef CONFIG_CC_OPTIMIZE_ALOT
 KBUILD_CFLAGS	+= -O3
