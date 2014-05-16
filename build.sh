@@ -1,13 +1,13 @@
 ## Script for building kernel
 ## Adapted from script designed by Rohan Mathur
 
-CROSS_COMPILE=toolchain/arm-cortex_a15-linux-gnueabihf-linaro_4.8.3/bin/arm-cortex_a15-linux-gnueabihf-
+CROSS_COMPILE=toolchain/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1/bin/arm-cortex_a15-linux-gnueabihf-
 RAMDISK=ramdisk.img
 KERNEL_NAME=Torched-KK
-KERNEL_VNUMBER=Build4.0-beta
+KERNEL_VNUMBER=Build4.2-beta
 CONFIG_FILE=torched_elite_defconfig
 MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
-export LOCALVERSION="-Torched-KK.B4.0b"
+export LOCALVERSION="-Torched-KK.B4.2b"
 export KBUILD_BUILD_VERSION="4"
 
 # DO NOT MODIFY BELOW THIS LINE
