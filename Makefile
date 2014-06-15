@@ -351,10 +351,14 @@ CC		= $(srctree)/scripts/gcc-wrapper.py $(REAL_CC)
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
-MODFLAGS	= -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant \
-                  -mtune=cortex-a15 -marm -mfpu=neon -ftree-vectorize -funroll-loops -mvectorize-with-neon-quad \
-                  -floop-interchange -ftree-loop-distribution -floop-strip-mine -floop-block \
-                  -munaligned-access -fpredictive-commoning
+MODFLAGS	= -fgcse-lm -fgcse-sm -fsched-spec-load -fgcse-after-reload -fforce-addr -ffast-math -fsingle-precision-constant \
+                  -mcpu=cortex-a15 -mtune=cortex-a15 -mfpu=neon-vfpv4 -marm -mfpu=neon -ftree-vectorize -funroll-loops -mvectorize-with-neon-quad \
+                  -fgraphite -floop-interchange -ftree-loop-distribution -floop-strip-mine -floop-block \
+                  -fgraphite-identity -floop-flatten -ftree-loop-linear \
+                  -munaligned-access -fpredictive-commoning \
+                  -funsafe-loop-optimizations -fivopts -ftree-loop-im -ftree-loop-ivcanon -ffunction-sections \
+                  -funswitch-loops -fgcse-las -fweb -frename-registers -frerun-cse-after-loop -fomit-frame-pointer -s
+
 CFLAGS_MODULE   = $(MODFLAGS) -DMODULE 
 AFLAGS_MODULE   = $(MODFLAGS) -DMODULE 
 LDFLAGS_MODULE  = -T $(srctree)/scripts/module-common.lds
