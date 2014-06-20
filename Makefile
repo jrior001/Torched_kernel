@@ -351,7 +351,10 @@ CC		= $(srctree)/scripts/gcc-wrapper.py $(REAL_CC)
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
-MODFLAGS	= -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant -mtune=cortex-a15 -marm -mfpu=neon -ftree-vectorize -funroll-loops -mvectorize-with-neon-quad
+MODFLAGS	= -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant \
+                  -mtune=cortex-a15 -marm -mfpu=neon -ftree-vectorize -funroll-loops -mvectorize-with-neon-quad \
+                  -floop-interchange -ftree-loop-distribution -floop-strip-mine -floop-block \
+                  -munaligned-access -fpredictive-commoning
 CFLAGS_MODULE   = $(MODFLAGS) -DMODULE 
 AFLAGS_MODULE   = $(MODFLAGS) -DMODULE 
 LDFLAGS_MODULE  = -T $(srctree)/scripts/module-common.lds
@@ -373,7 +376,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security -fno-aggressive-loop-optimizations\
-		   -fno-delete-null-pointer-checks
+		   -fno-delete-null-pointer-checks $(MODFLAGS)
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
