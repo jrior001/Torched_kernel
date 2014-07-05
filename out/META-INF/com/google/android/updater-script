@@ -1,6 +1,8 @@
 set_progress(0.0);
 ui_print(" ");
-ui_print("Torched Kernel");
+ui_print("    Torched Kernel     ");
+ui_print("With F2FS fstab converter");
+ui_print("     By: jrior001      ");
 ifelse(is_mounted("/system") == "/system", unmount("/system"));
 ifelse(is_mounted("/cache") == "/cache", unmount("/cache"));
 ui_print("..");
@@ -15,11 +17,13 @@ set_perm(0, 0, 0777, "/tmp/mkbootimg");
 set_perm(0, 0, 0777, "/tmp/unpackbootimg");
 set_perm(0, 0, 0777, "/tmp/modclean.sh");
 set_perm(0, 0, 0777, "/tmp/edit_ramdisk.sh");
+set_perm(0, 0, 0777, "/tmp/fstab.qcom.tmp");
 set_progress(0.1);
 
 
 ui_print("Mount system...");
 run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/busybox", "mount", "/data");
 set_progress(0.2);
 
 
@@ -27,15 +31,15 @@ ui_print("Clean up old modules...");
 run_program("/tmp/modclean.sh");
 set_progress(0.3);
 
-
-ui_print("Copy new modules...");
+ui_print("Copying f2fs tools...");
 package_extract_dir("system", "/system");
-#package_extract_dir("prebuilt", "/system");
-
+set_perm(0, 2000, 0755, "/system/bin/fsck.f2fs");
+set_perm(0, 2000, 0755, "/system/bin/mkfs.f2fs");
+set_perm(0, 2000, 0755, "/system/bin/fibmap.f2fs");
 
 #FOR INIT.D IF I EVER GET THERE
 ui_print("Copy init.d scripts...");
-package_extract_dir("system", "/system");
+#package_extract_dir("system", "/system");
 set_perm_recursive(0, 2000, 0777, 0777, "/system/etc/init.d");
 
 ui_print("Extract old kernel...");
@@ -50,6 +54,7 @@ ui_print("Fixing your ramdisk...");
 ui_print("looking for busybox...");
 ui_print("adding init.d support (if not already supported)...");
 ui_print("disabling veriable brightness controls to allow BLN...");
+ui_print("Fixing fstab for any f2fs formated drives...");
 run_program("/tmp/edit_ramdisk.sh");
 set_progress(0.7);
 
@@ -60,6 +65,7 @@ set_progress(0.75);
 
 ui_print("Unmounting system...");
 unmount("/system");
+unmount("/data");
 set_progress(0.8);
 
 
@@ -72,10 +78,11 @@ ui_print("Flashing new boot.img...");
 run_program("/sbin/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p21");
 set_progress(0.95);
 
+ui_print("Cleaning up files...");
+delete("/tmp/*");
 ui_print("");
-set_progress(0.9);
 
-ui_print("");
-ui_print("Gotta wipe when your done right?...");
+ui_print("Toched Kernel flash complete");
+ui_print("F2FS/EXT4 fstab uptaded");
 ui_print("");
 ui_print("Please wipe cache/dalvik before rebootiing");
