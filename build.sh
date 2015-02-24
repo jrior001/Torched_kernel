@@ -8,7 +8,7 @@ KERNEL_VNUMBER=Build-beta
 CONFIG_FILE=torched_elite_defconfig
 MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
 export LOCALVERSION="-BETA"
-export KBUILD_BUILD_VERSION="4"
+export KBUILD_BUILD_VERSION="5"
 
 # DO NOT MODIFY BELOW THIS LINE
 CURRENT_DIR=`pwd`
