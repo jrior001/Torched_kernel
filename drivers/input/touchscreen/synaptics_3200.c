@@ -2375,8 +2375,7 @@ static void synaptics_ts_finger_func(struct synaptics_ts_data *ts)
 
 #ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
 				//dt2w
-				if ((((ts->finger_count > 0)?1:0) == 0) && (scr_suspended == true) && (dt2w_switch == 1) &&
-						(finger_data[0][1] > 1400)) { 
+				if ((((ts->finger_count > 0)?1:0) == 0) && (scr_suspended == true) && (dt2w_switch == 1)) { 
 					dt_trigger_time = ktime_to_ms(ktime_get());
 					printk(KERN_INFO "[dt2wake]: %d=> Y:%d\n", i + 1,  finger_data[0][1]);
 					dt2w_func(dt_trigger_time);
