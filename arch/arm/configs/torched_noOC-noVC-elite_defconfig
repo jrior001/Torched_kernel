@@ -2631,7 +2631,7 @@ CONFIG_HID_SUPPORT=y
 CONFIG_HID=y
 # CONFIG_HID_BATTERY_STRENGTH is not set
 CONFIG_HIDRAW=y
-# CONFIG_UHID is not set
+CONFIG_UHID=y
 
 #
 # USB Input Devices
@@ -2697,9 +2697,13 @@ CONFIG_HID_THRUSTMASTER=y
 # CONFIG_THRUSTMASTER_FF is not set
 # CONFIG_HID_WACOM is not set
 CONFIG_HID_WIIMOTE=y
+<<<<<<< HEAD:arch/arm/configs/torched_noOC-noVC-elite_defconfig
 CONFIG_HID_WIIMOTE_EXT=y
 CONFIG_HID_ZEROPLUS=y
 # CONFIG_ZEROPLUS_FF is not set
+=======
+# CONFIG_HID_ZEROPLUS is not set
+>>>>>>> a3a4ca1... msm: HTC: Enable WiiMote support for 8960 series devices:arch/arm/configs/zara_defconfig
 # CONFIG_HID_ZYDACRON is not set
 # CONFIG_USB_ARCH_HAS_OHCI is not set
 CONFIG_USB_ARCH_HAS_EHCI=y
