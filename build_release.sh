@@ -1,7 +1,7 @@
 ## Script for building kernel
 ## Adapted from script designed by Rohan Mathur
 
-CROSS_COMPILE=toolchain/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1/bin/arm-gnueabi-
+CROSS_COMPILE=toolchain/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3/bin/arm-eabi-
 #RAMDISK=ramdisk.img
 KERNEL_NAME=Torched-KK
 KERNEL_VNUMBER=Build5.FINAL-F2FS
