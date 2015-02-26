@@ -147,7 +147,7 @@ static struct dcvs_core core_list[CORES_MAX];
 static struct kobject *cores_kobj;
 
 #ifdef CONFIG_LOW_CPUCLOCKS
-#define LOW_FREQS 1
+#define LOW_FREQS 5
 #else
 #define LOW_FREQS 0
 #endif
