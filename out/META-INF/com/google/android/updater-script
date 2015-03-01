@@ -31,11 +31,7 @@ ui_print("Clean up old modules...");
 run_program("/tmp/modclean.sh");
 set_progress(0.3);
 
-ui_print("Copying f2fs tools...");
 package_extract_dir("system", "/system");
-set_perm(0, 2000, 0755, "/system/bin/fsck.f2fs");
-set_perm(0, 2000, 0755, "/system/bin/mkfs.f2fs");
-set_perm(0, 2000, 0755, "/system/bin/fibmap.f2fs");
 
 #FOR INIT.D IF I EVER GET THERE
 ui_print("Copy init.d scripts...");
