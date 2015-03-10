@@ -522,7 +522,7 @@ static int __f2fs_setxattr(struct inode *inode, int name_index,
 		if (found)
 			free = free + ENTRY_SIZE(here);
 
-		if (unlikely(free < newsize)) {
+		if (free < newsize) {
 			error = -ENOSPC;
 			goto exit;
 		}
