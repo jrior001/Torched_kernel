@@ -146,3 +146,7 @@ obj-$(CONFIG_CORESIGHT)		+= coresight/
 ifeq (1, $(shell if [ -d drivers/exfat ] ; then echo 1 ; fi))
 obj-y   += exfat/
 endif
+
+#sensor_class
+obj-$(CONFIG_SENSORS)		+= sensors/
+
