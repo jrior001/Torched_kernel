@@ -6,7 +6,7 @@ RAMDISK=ramdisk.img
 KERNEL_NAME=Torched-KK
 KERNEL_VNUMBER=Build-beta
 CONFIG_FILE=torched_elite_defconfig
-MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
+#MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
 export LOCALVERSION="-BETA"
 export KBUILD_BUILD_VERSION="4"
 
@@ -49,11 +49,11 @@ echo "***********************************************************************"
 echo "*                              Making zip                             *"
 echo "***********************************************************************"
 
-if [[ ! -e $MOD_DIR ]]; then
-    mkdir -p $MOD_DIR
-elif [[ ! -d $MOD_DIR ]]; then
-    echo "$MOD_DIR already exists but is not a directory" 1>&2
-fi
+#if [[ ! -e $MOD_DIR ]]; then
+#    mkdir -p $MOD_DIR
+#elif [[ ! -d $MOD_DIR ]]; then
+#    echo "$MOD_DIR already exists but is not a directory" 1>&2
+#fi
 
 #cp drivers/staging/prima/prima_wlan.ko out/system/lib/modules/prima_wlan.ko
 #cp drivers/scsi/scsi_wait_scan.ko out/system/lib/modules/scsi_wait_scan.ko
