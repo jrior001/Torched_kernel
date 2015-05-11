@@ -4,7 +4,7 @@
 CROSS_COMPILE=toolchain/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3/bin/arm-eabi-
 #RAMDISK=ramdisk.img
 KERNEL_NAME=Torched-KK
-KERNEL_VNUMBER=Build5.FINAL-F2FS
+KERNEL_VNUMBER=Build6.FINAL-F2FS
 CONFIG_FILE=torched_elite_defconfig
 #MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
 #export LOCALVERSION="-Torched-KK.B4.4"
@@ -74,7 +74,7 @@ echo "***********************************************************************"
 
 make clean -j$NB_CPU
 KERNEL_NAME=Torched-KK-noOC-noVC
-KERNEL_VNUMBER=Build5.FINAL-F2FS
+KERNEL_VNUMBER=Build6.FINAL-F2FS
 CONFIG_FILE2=torched_noOC-noVC-elite_defconfig
 #MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
 #export LOCALVERSION="-Torched-KK.B4.4-noOC-noVC"
