@@ -76,11 +76,6 @@ if [ "$found" = 'chown system system /sys/class/leds/button-backlight/currents' 
 
 fi
 
-
-cp /tmp/fstab.qcom.tmp /tmp/fstab.qcom.tmp1;
-rm /tmp/ramdisk/fstab.qcom
-mv /tmp/fstab.qcom.tmp /tmp/ramdisk/fstab.qcom;
-
 rm /tmp/ramdisk/boot.img-ramdisk.gz
 rm /tmp/boot.img-ramdisk.gz
 cd /tmp/ramdisk/

@@ -4,7 +4,7 @@
 CROSS_COMPILE=toolchain/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3/bin/arm-eabi-
 #RAMDISK=ramdisk.img
 KERNEL_NAME=Torched-LP
-KERNEL_VNUMBER=Build2.0-F2FS
+KERNEL_VNUMBER=Build2.5
 CONFIG_FILE=torched_elite_defconfig
 #MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
 #export LOCALVERSION="-Torched-KK.B4.4"
@@ -74,7 +74,7 @@ echo "***********************************************************************"
 
 make clean -j$NB_CPU
 KERNEL_NAME=Torched-LP-noOC-noVC
-KERNEL_VNUMBER=Build2.0-F2FS
+KERNEL_VNUMBER=Build2.5
 CONFIG_FILE2=torched_noOC-noVC-elite_defconfig
 #MOD_DIR=${CURRENT_DIR}/out/system/lib/modules
 #export LOCALVERSION="-Torched-KK.B4.4-noOC-noVC"
@@ -124,7 +124,8 @@ zip -r temp.zip *
 cd ..
 cp out/temp.zip release/${KERNEL_NAME}.${KERNEL_VNUMBER}.zip
 cd release/
-scp Torched* jrior001@node1-c6100.codefi.re:downloads/Torched-kernel/
+#scp Torched* jrior001@node1-c6100.codefi.re:downloads/Torched-kernel/
+cp Torched* /var/www/downloads/evita/Torched/
 echo "***********************************************************************"
 echo "*                                 Done!                               *"
 echo "***********************************************************************"
